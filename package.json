@@ -1,0 +1,28 @@
+{
+  "name": "cloudblog",
+  "version": "1.0.0",
+  "description": "seazene's blog",
+  "main": "index.js",
+  "scripts": {
+    "post:dev": "vitepress dev post",
+    "post:build": "vitepress build post",
+    "post:serve": "vitepress serve post",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seazones/cloudBlog.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "seazones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seazones/cloudBlog/issues"
+  },
+  "homepage": "https://github.com/seazones/cloudBlog#readme",
+  "dependencies": {
+    "vitepress": "^0.13.0"
+  }
+}
