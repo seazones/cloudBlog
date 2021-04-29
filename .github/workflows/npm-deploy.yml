@@ -19,15 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Install & Build
-       - run: npm install
-       - run: npm build post:build
+         run: npm install
+              npm run post:build
        - name: Git Publish 
-       - run: cd ./post/.vitepress/
-       - run: git init
-       - run: git config user.name "seazones"
-       - run: git config user.email "seazones@163.com"
-       - run: git add .
-       - run: commit -m "Update Blog By GitAction With Build $TRAVIS_BUILD_NUMBER"
-       - run: git push --force --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master
+         run: cd ./post/.vitepress/
+              git init
+              git config user.name "seazones"
+              git config user.email "seazones@163.com"
+              git add .
+              git commit -m "Update Blog By GitAction With Build $TRAVIS_BUILD_NUMBER"
+              git push --force --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master
             
         
