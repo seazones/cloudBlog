@@ -20,12 +20,9 @@ jobs:
     steps:
       - name: Install and Build
         run: npm install
-             npm build post:dev
-
-  publish-ghr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      -name: publish 
-       env:
-           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+             npm build post:build
+      - name: Publish 
+        run: cd ./post/.vitepress/
+            git init
+            
+        
