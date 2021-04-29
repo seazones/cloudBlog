@@ -19,7 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Install & Build
-       - run: npm install       
+       - run: npm install
+       - name: run
        - run: npm run post:build
        - name: Git Publish 
          run: cd ./post/.vitepress/
