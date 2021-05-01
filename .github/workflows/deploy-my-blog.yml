@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Install & Build
-       - run: npm install
-       - name: run
-       - run: npm run post:build
-       - name: Git Publish 
+         run: npm install
+       - name: npm build
+         run: npm run post:build
+       - name: Git ENV
          run: cd ./post/.vitepress/
               git init
               git config user.name "seazones"
