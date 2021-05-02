@@ -19,11 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Install & Build
-         run: npm install
+         run: npm  add --dev vitepress
        - name: npm build
          run: npm run post:build
        - name: Git ENV
          run: cd ./post/.vitepress/
+       - name: Git push
+         run:  |
               git init
               git config user.name "seazones"
               git config user.email "seazones@163.com"
