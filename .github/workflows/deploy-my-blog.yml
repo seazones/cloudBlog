@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Install & Build
-         run: npm  add --dev vitepress
+         run: npm  add --also=dev vitepress
        - name: cd
-         run: cd cloudBlog/
+         run: ls
        - name: npm build
          run: npm run post:build
        - name: Git ENV
