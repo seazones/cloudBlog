@@ -5,34 +5,20 @@ name: Seazones' Blog
 
 on:
   push:
-    branches: 
-            - master
-
+    branches:
+      - master
 jobs:
-  env:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: CheckOut
-        uses: actions/checkout@master
-      
-  build:
-    runs-on: ubuntu-latest
-    steps:
-       - name: Install & Build
-         run: npm  add --also=dev vitepress
-       - name: cd
-         run: ls
-       - name: npm build
-         run: npm run post:build
-       - name: Git ENV
-         run: cd ./post/.vitepress/
-       - name: Git push
-         run:  |
-              git init
-              git config user.name "seazones"
-              git config user.email "seazones@163.com"
-              git add .
-              git commit -m "Update Blog By GitAction With Build $TRAVIS_BUILD_NUMBER"
-              git push --force --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master
-            
-        
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: .viteprss/dist
+        BUILD_SCRIPT: npm install && npm run post:build
+     
